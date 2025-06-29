@@ -2,8 +2,12 @@ import { loadFromStorage, makeId, saveToStorage } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
-// _createMails()
+_createMails()
 
+const loggedinUser = {
+    email: 'user@appsus.com',
+    fullname: 'Mahatma Appsus'
+}
 
 export const mailService = {
     query,
@@ -175,7 +179,6 @@ function _createMail(subject) {
     mail.id = makeId()
     return mail
 }
-
 
 function _setNextPrevCarId(mail) {
     return query().then((mails) => {
