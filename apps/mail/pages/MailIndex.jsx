@@ -1,7 +1,7 @@
 import { mailService } from "../services/mail.service.js"
 const { useState, useEffect } = React
 
-export function MailIndex() {
+export function MailIndex({ logo }) {
     const [mails, setMails] = useState(null)
 
     useEffect(() => {
@@ -20,6 +20,11 @@ export function MailIndex() {
 
     return (
         <div>
+            {logo && (
+                <div className="mail-logo-container">
+                    <img src={logo} alt="Section Logo" />
+                </div>
+            )}
             <h1>Inbox</h1>
             <ul className="mail-list">
                 {mails.map(mail => (

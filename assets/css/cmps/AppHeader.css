@@ -14,3 +14,9 @@ nav a.active {
     font-weight: bold;
     text-decoration: overline;
 }
+
+.header-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
