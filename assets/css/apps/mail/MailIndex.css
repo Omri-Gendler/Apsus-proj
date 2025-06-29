@@ -1,1 +1,14 @@
- /* mail index  */
+
+:root {
+    --bg1: #f8fafd; /* MAIN */ 
+    --bg2: rgb(50, 160, 204);
+    --bg3: rgb(89, 134, 206);
+
+    --color1: rgb(247 202 76); /* STARRED, LABALED */ 
+    --color2: rgb(24, 128, 56);
+    --color3: rgb(197, 34, 31);
+
+    --gray2: #aaa;
+    --gray2: #888;
+    --gray2: #333;
+}
