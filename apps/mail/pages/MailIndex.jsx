@@ -25,7 +25,7 @@ export function MailIndex() {
     }
     return (
         <div className="mail-index">
-            <h1>Welcome to your Mail App</h1>
+            <h1>Inbox</h1>
             <ul className="mail-list">
                 {mails.map(mail => (
                     <li key={mail.id} className="mail-preview">

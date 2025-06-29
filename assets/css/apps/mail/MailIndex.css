@@ -1,14 +1,23 @@
+h1 {
+    text-align: center;
+    margin: 1.5em;
+}
 
-:root {
-    --bg1: #f8fafd; /* MAIN */ 
-    --bg2: rgb(50, 160, 204);
-    --bg3: rgb(89, 134, 206);
+.mail-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 
-    --color1: rgb(247 202 76); /* STARRED, LABALED */ 
-    --color2: rgb(24, 128, 56);
-    --color3: rgb(197, 34, 31);
+.mail-preview {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    padding: 12px 8px;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+}
 
-    --gray2: #aaa;
-    --gray2: #888;
-    --gray2: #333;
+.mail-preview:hover {
+    background-color: #f5f5f5;
 }

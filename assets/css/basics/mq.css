@@ -1,0 +1,17 @@
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.2em;
+        margin: 1em 0.2em;
+    }
+
+    .mail-list {
+        padding: 0 0.2em;
+    }
+
+    .mail-preview {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 4px;
+        font-size: 0.95em;
+    }
+}
