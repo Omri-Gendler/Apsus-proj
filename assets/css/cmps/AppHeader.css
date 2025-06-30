@@ -16,7 +16,6 @@ nav a.active {
 }
 
 .header-logo {
-    width: 150px;
-    height: 150px;
+    width: 50px;
     object-fit: contain;
 }

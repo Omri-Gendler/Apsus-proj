@@ -1,0 +1,19 @@
+
+body.{
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 25px 0 0 25px;
+    color: rgb(32, 33, 36);
+    display: flex;
+    
+    align-items: center;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    line-height: 1.25rem;
+    font-size: .875rem;
+    letter-spacing: .0178571429em;
+    font-weight: 500;
+    height: 48px;
+    min-width: 48px;
+    overflow: hidden;
+    width: 100%;
+}

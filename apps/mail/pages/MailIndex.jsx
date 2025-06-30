@@ -45,8 +45,8 @@ export function MailIndex({ logo }) {
                     </li>
                 ))}
                 {console.log(mails)}
-                <MailList mails={mails} logo={logo} />
-                <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
+                {/* <MailList mails={mails} logo={logo} />
+                <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} /> */}
             </ul>
         </div>
     )
