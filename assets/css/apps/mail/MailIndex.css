@@ -11,6 +11,15 @@ h1 {
     margin-top: 10px;
 }
 
+.mail-inbox {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    height: calc(100vh - 80px);
+    font-family: 'Roboto', sans-serif;
+    color: #3c4043;
+    margin-top: 10px;
+}
+
 .mail-list {
     list-style-type: none;
     padding: 0;
