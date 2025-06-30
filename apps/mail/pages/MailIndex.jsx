@@ -1,4 +1,5 @@
 import { mailService } from "../services/mail.service.js"
+import { MailList } from "../cmps/MailList.jsx"
 const { useState, useEffect } = React
 
 export function MailIndex({ logo }) {
@@ -20,6 +21,7 @@ export function MailIndex({ logo }) {
 
     return (
         <div>
+            <MailList mails={mails} logo={logo} />
             {logo && (
                 <div className="mail-logo-container">
                     <img src={logo} alt="Section Logo" />
