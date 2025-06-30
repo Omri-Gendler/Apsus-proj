@@ -1,57 +1,70 @@
-import { mailService } from "../services/mail.service.js"
-import { utilService } from "../services/util.service.js"
 import { MailList } from "../cmps/MailList.jsx"
 import { MailFilter } from "../cmps/MailFilter.jsx"
+import { mailService } from "../services/mail.service.js"
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
+
+const { Link } = ReactRouterDOM
 const { useState, useEffect } = React
 
 export function MailIndex({ logo }) {
+
     const [mails, setMails] = useState(null)
-    const [filterBy, onSetFilterBy] = useState('')
+    const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter(''))
 
     useEffect(() => {
-        mailService.query()
-            .then(resolvedMails => {
-                setMails(resolvedMails)
-            })
-            .catch(err => {
-                console.error("Failed to load mails:", err)
-            })
-    }, [])
+        loadMails()
 
-    if (!mails) {
-        return <div>Loading mails...</div>
+    }, [filterBy])
+
+    function loadMails() {
+        mailService.query(filterBy)
+            .then(setMails)
+            .catch(err => {
+                console.log('err:', err)
+            })
     }
 
+    function onRemoveMails(mailId) {
+        mailService.remove(mailId)
+            .then(() => {
+                showSuccessMsg('Mail Removed Successfully!')
+                setMails((prevMails) =>
+                    prevMails.filter(mail => mail.id !== mailId)
+                )
+            })
+            .catch(err => {
+                console.log(err)
+                showErrorMsg('Problem removing Mail')
+            })
+    }
+
+    function onSetFilterBy(filterByToEdit) {
+        setFilterBy(prevFilter => ({ ...prevFilter, ...filterByToEdit }))
+    }
+
+    if (!mails) return <div className="container">Loading...</div>
     return (
         <div className="mail-inbox">
 
+            <aside className="side-bar">
 
-            {logo && (
-                <div className="mail-logo-container">
-                    <img src={logo} alt="Section Logo" />
+                {logo && (
+                    <div className="mail-logo-container">
+                        <img src={logo} alt="Section Logo" />
+                    </div>
+                )}
+                <div className="side-bar">
+                    <div>Inbox</div>
+                    <div>Starred</div>
+                    <div>Snoozed</div>
+                    <div>Sent</div>
+                    <div>Drafts</div>
                 </div>
-            )}
-            <div className="side-bar">
-                <div className="side-bar">Inbox</div>
-                <div className="side-bar">Starred</div>
-                <div className="side-bar">Snoozed</div>
-                <div className="side-bar">Sent</div>
-                <div className="side-bar">Drafts</div>
-            </div>
-
-            <ul className="mail-list">
-            <input type="text" name="text" id="text" placeHolder="Search" />
-                {mails.map(mail => (
-                    <li className="mail-preview" key={mail.id}>
-                        <span className="from">{mail.from}</span>
-                        <span className="subject">{mail.subject}</span>
-                    </li>
-
-                ))}
-                {console.log(mails)}
-                {/* <MailList mails={mails} logo={logo} />
-                <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} /> */}
-            </ul>
+            </aside>
+            <main className="mail-main-content">
+                {<MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />}
+                {<MailList mails={mails} logo={logo} />}
+            </main>
         </div>
     )
 }

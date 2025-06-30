@@ -1,8 +1,7 @@
 
-
 const { useState, useEffect } = React
 
-export function CarFilter({ filterBy, onSetFilterBy }) {
+export function MailFilter({ filterBy, onSetFilterBy }) {
 
     const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
 
@@ -29,14 +28,8 @@ export function CarFilter({ filterBy, onSetFilterBy }) {
 
     const { txt } = filterByToEdit
     return (
-        <section className="mails-filter container">
-            <h2>Filter Our Cars</h2>
-            <form >
-
-                <label htmlFor="txt">Vendor</label>
-                <input onChange={handleChange} value={txt} name="txt" id="txt" type="text" />
-
-            </form>
-        </section>
+        <div className="mail-filter-container">
+            <input onChange={handleChange} value={txt} name="txt" id="txt" type="text" />
+        </div>
     )
 }

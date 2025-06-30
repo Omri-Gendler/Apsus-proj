@@ -6,24 +6,16 @@ h1 {
     display: grid;
     grid-template-columns: 240px 1fr;
     height: calc(100vh - 80px);
-    font-family: 'Roboto', sans-serif;
     color: #3c4043;
     margin-top: 10px;
-}
-
-.mail-inbox {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    height: calc(100vh - 80px);
-    font-family: 'Roboto', sans-serif;
-    color: #3c4043;
-    margin-top: 10px;
+    
 }
 
 .mail-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    
 }
 
 .mail-preview {
@@ -36,6 +28,7 @@ h1 {
     cursor: pointer;
     font-weight: bold;
     margin: 25px;
+    
 }
 
 .mail-preview .from {

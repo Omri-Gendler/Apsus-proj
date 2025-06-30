@@ -26,4 +26,8 @@
     .side-bar {
         display: none;
     }
+
+    .subject {
+        margin-left: 0px;
+    }
 }

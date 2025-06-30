@@ -7,10 +7,13 @@ export function MailList({ mails }) {
         <div>
             <ul className="mail-list">
                 {mails.map(mail => (
-                    // <MailPreview key={mail.id} mail={mail} />
-                    mail.body
-                    
+                    <li className="mail-preview" key={mail.id}>
+                        <span className="from">{mail.from}</span>
+                        <span className="subject">{mail.subject}</span>
+                    </li>
+
                 ))}
+                {console.log(mails)}
             </ul>
         </div>
     )
