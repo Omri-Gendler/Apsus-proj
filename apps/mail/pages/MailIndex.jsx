@@ -31,7 +31,7 @@ export function MailIndex({ logo }) {
                     <img src={logo} alt="Section Logo" />
                 </div>
             )}
-            <div>
+            <div className="side-bar">
                 <div className="side-bar">Inbox</div>
                 <div className="side-bar">Starred</div>
                 <div className="side-bar">Snoozed</div>

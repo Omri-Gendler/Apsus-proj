@@ -4,6 +4,10 @@
         margin: 1em 0.2em;
     }
 
+    .mail-inbox {
+        grid-template-columns: 1fr;
+    }
+
     .mail-list {
         padding: 0 0.2em;
     }
@@ -17,5 +21,9 @@
 
     .app-header {
         background-color: red;
+    }
+
+    .side-bar {
+        display: none;
     }
 }
