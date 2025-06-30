@@ -1,9 +1,12 @@
 import { mailService } from "../services/mail.service.js"
+import { utilService } from "../services/util.service.js"
 import { MailList } from "../cmps/MailList.jsx"
+import { MailFilter } from "../cmps/MailFilter.jsx"
 const { useState, useEffect } = React
 
 export function MailIndex({ logo }) {
     const [mails, setMails] = useState(null)
+    const [filterBy, onSetFilterBy] = useState('')
 
     useEffect(() => {
         mailService.query()
@@ -21,7 +24,14 @@ export function MailIndex({ logo }) {
 
     return (
         <div>
-            <MailList mails={mails} logo={logo} />
+            {/* <div className="search-input">
+
+                <input type="text" name="text" id="text" placeHolder="Search" />
+
+                <button className="search">Search</button>
+
+            </div> */}
+
             {logo && (
                 <div className="mail-logo-container">
                     <img src={logo} alt="Section Logo" />
@@ -34,8 +44,10 @@ export function MailIndex({ logo }) {
                         From: {mail.from} | Subject: {mail.subject}
                     </li>
                 ))}
+                {console.log(mails)}
+                <MailList mails={mails} logo={logo} />
+                <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
             </ul>
         </div>
     )
 }
-
