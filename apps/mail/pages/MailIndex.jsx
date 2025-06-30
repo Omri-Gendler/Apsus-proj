@@ -24,13 +24,7 @@ export function MailIndex({ logo }) {
 
     return (
         <div className="mail-inbox">
-            {/* <div className="search-input">
 
-                <input type="text" name="text" id="text" placeHolder="Search" />
-
-                <button className="search">Search</button>
-
-            </div> */}
 
             {logo && (
                 <div className="mail-logo-container">
@@ -46,6 +40,7 @@ export function MailIndex({ logo }) {
             </div>
 
             <ul className="mail-list">
+            <input type="text" name="text" id="text" placeHolder="Search" />
                 {mails.map(mail => (
                     <li className="mail-preview" key={mail.id}>
                         <span className="from">{mail.from}</span>
