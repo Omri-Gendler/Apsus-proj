@@ -23,7 +23,7 @@ export function MailIndex({ logo }) {
     }
 
     return (
-        <div>
+        <div className="mail-inbox">
             {/* <div className="search-input">
 
                 <input type="text" name="text" id="text" placeHolder="Search" />
@@ -41,8 +41,10 @@ export function MailIndex({ logo }) {
             <ul className="mail-list">
                 {mails.map(mail => (
                     <li className="mail-preview" key={mail.id}>
-                        From: {mail.from} | Subject: {mail.subject}
+                        <span className="from">{mail.from}</span>
+                        <span className="subject">{mail.subject}</span>
                     </li>
+
                 ))}
                 {console.log(mails)}
                 {/* <MailList mails={mails} logo={logo} />

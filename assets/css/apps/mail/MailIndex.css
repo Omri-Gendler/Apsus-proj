@@ -3,6 +3,15 @@ h1 {
     margin: 1.5em;
 }
 
+.mail-inbox {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    height: calc(100vh - 80px);
+    font-family: 'Roboto', sans-serif;
+    color: #3c4043;
+    margin-top: 10px;
+}
+
 .mail-list {
     list-style-type: none;
     padding: 0;
@@ -10,12 +19,21 @@ h1 {
 }
 
 .mail-preview {
-    display: flex;
-    justify-content: space-between;
-    justify-content: center;
-    padding: 12px 8px;
+    display: grid;
+    grid-template-columns: 250px 250px;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
     border-bottom: 1px solid #e0e0e0;
     cursor: pointer;
+}
+
+.mail-preview .from {
+    margin: 0;
+}
+
+.mail-preview .subject {
+    margin-left: 80px;
 }
 
 .mail-preview:hover {
