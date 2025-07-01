@@ -1,4 +1,6 @@
 
 export function NoteIndex() {
-    return <section className="container">Notes app</section>
+    return <section className="container">
+        <NoteList/>
+        </section>
 }

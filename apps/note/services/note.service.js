@@ -64,9 +64,6 @@ function query(filterBy = {}) {
                     || note.categories.includes(filterBy.txt)
                 )
             }
-            if (filterBy.minPrice) {
-                notes = notes.filter(note => note.listPrice.amount >= filterBy.minPrice)
-            }
             return notes
         })
 }
@@ -90,7 +87,7 @@ function save(note) {
 }
 
 function getDefaultFilter() {
-    return { txt: '', minPrice: '' }
+    return { txt: ''}
 }
 
 
@@ -156,7 +153,9 @@ function getEmptyNote() {
         type: 'NoteTxt', 
         isPinned: true, 
         style: { backgroundColor: '#00d' }, 
-        info: { txt: 'Fullstack Me Baby!' } 
+        info: { 
+            title:'important',
+            txt: 'Fullstack Me Baby!' } 
     
     }
 }
