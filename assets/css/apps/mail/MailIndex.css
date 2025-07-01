@@ -8,14 +8,14 @@ h1 {
     height: calc(100vh - 80px);
     color: #3c4043;
     margin-top: 10px;
-    
+
 }
 
 .mail-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    
+
 }
 
 .mail-preview {
@@ -28,7 +28,7 @@ h1 {
     cursor: pointer;
     font-weight: bold;
     margin: 25px;
-    
+
 }
 
 .mail-preview .from {
@@ -48,5 +48,13 @@ input {
 }
 
 .side-bar {
-    padding: 25px;
+    display: grid;
+    align-items: baseline;
+    justify-content: center;
+    background-color: #e9eef6;
+    width: 50%;
+}
+
+.side-bar span {
+    padding-top: 2rem
 }

@@ -1,4 +1,3 @@
-
 export function MailPreview({ mail }) {
 
     const readClass = mail.isRead ? 'read' : 'unread'
