@@ -54,11 +54,11 @@ export function MailIndex({ logo }) {
                     </div>
                 )}
                 <div className="side-bar">
-                    <div>Inbox</div>
-                    <div>Starred</div>
-                    <div>Snoozed</div>
-                    <div>Sent</div>
-                    <div>Drafts</div>
+                    <span><Link to='/inbox'>Inbox</Link></span>
+                    <span><Link to='/starred'>Starred</Link></span>
+                    <span><Link to='/snoozed'>Snoozed</Link></span>
+                    <span><Link to='/sent'>Sent</Link></span>
+                    <span><Link to='/drafts'>Drafts</Link></span>
                 </div>
             </aside>
             <main className="mail-main-content">

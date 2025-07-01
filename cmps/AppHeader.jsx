@@ -1,7 +1,7 @@
 const { Link, NavLink, useLocation } = ReactRouterDOM
 
 const mailLogo = './img/logo.png'
-const defaultLogo = 'Logo'
+const defaultLogo = './img/app-logo.webp'
 
 export function AppHeader() {
     const location = useLocation()
