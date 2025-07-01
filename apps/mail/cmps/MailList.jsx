@@ -1,3 +1,5 @@
+import { MailPreview } from "./MailPreview.jsx"
+
 export function MailList({ mails }) {
 
     if (!mails || mails.length === 0) {
@@ -7,11 +9,10 @@ export function MailList({ mails }) {
         <div>
             <ul className="mail-list">
                 {mails.map(mail => (
-                    <li className="mail-preview" key={mail.id}>
-                        <span className="from">{mail.from}</span>
-                        <span className="subject">{mail.subject}</span>
-                    </li>
-
+                    < MailPreview
+                        key={mail.id}
+                        mail={mail}
+                    />
                 ))}
                 {console.log(mails)}
             </ul>
