@@ -33,14 +33,7 @@ import { storageService } from './async-storage.service.js'
 import { gNotes } from '../data/gnotes.js'
 
 const NOTE_KEY = 'noteDB'
-const ctgs = ['Love', 'Fiction', 'Poetry', 'Computers', 'Religion']
-const authorsList = [
-    'George Orwell', 'Jane Austen', 'Mark Twain', 'J.K. Rowling',
-    'Ernest Hemingway', 'Virginia Woolf', 'F. Scott Fitzgerald',
-    'Haruki Murakami', 'Stephen King', 'Toni Morrison',
-    'Agatha Christie', 'Leo Tolstoy', 'Gabriel Garcia Marquez',
-    'Isaac Asimov', 'Chinua Achebe', 'Margaret Atwood'
-]
+
 _createNotes()
 
 export const noteService = {
@@ -53,9 +46,7 @@ export const noteService = {
     getCategories,
     getAuthors,
     getEmptyReview,
-    mapGoogleNoteToAppNote,
-    getNotesFromGoogle,
-    getNotesFromGoogleMod
+   
 }
 
 function query(filterBy = {}) {
@@ -72,9 +63,6 @@ function query(filterBy = {}) {
                     || regExp.test(note.subtitle)
                     || note.categories.includes(filterBy.txt)
                 )
-            }
-            if (filterBy.minPrice) {
-                notes = notes.filter(note => note.listPrice.amount >= filterBy.minPrice)
             }
             return notes
         })
@@ -99,12 +87,12 @@ function save(note) {
 }
 
 function getDefaultFilter() {
-    return { txt: '', minPrice: '' }
+    return { txt: ''}
 }
 
 
-function _createNote(vendor, speed = 250) {
-    const note = getEmptyNote(vendor, speed)
+function _createNote(info) {
+    const note = getEmptyNote(info)
     note.id = makeId()
     return note
 }
@@ -132,28 +120,17 @@ function _createNotes() {
         notes = []
         for (let i = 0; i < 20; i++) {
             const note = {
-                id: utilService.makeId(),
-                title: utilService.makeLorem(2),
-                subtitle: utilService.makeLorem(4),
-                authors: [
-                    authorsList[utilService.getRandomIntInclusive(0, authorsList.length - 1)]
-                ],
-                publishedDate: utilService.getRandomIntInclusive(1950, 2024),
-                description: utilService.makeLorem(20),
-                pageCount: utilService.getRandomIntInclusive(20, 600),
-                categories: [ctgs[utilService.getRandomIntInclusive(0, ctgs.length - 1)]],
-                thumbnail: `NotesImages/${i + 1}.jpg`,
-                language: "en",
-                listPrice: {
-                    amount: utilService.getRandomIntInclusive(80, 500),
-                    currencyCode: "EUR",
-                    isOnSale: Math.random() > 0.7
-                }
+                id: 'n101',
+                createdAt: 1112222, 
+                type: 'NoteTxt', 
+                isPinned: true, 
+                style: { backgroundColor: '#00d' }, 
+                info: { txt: 'Fullstack Me Baby!' }    
             }
             notes.push(note)
         }
         saveToStorage(NOTE_KEY, notes)
-    }
+}
     console.log('notes', notes)
 }
 
@@ -171,23 +148,15 @@ function _setNextPrevNoteId(note) {
 
 function getEmptyNote() {
     return {
-
-        title: "",
-        subtitle: utilService.makeLorem(4),
-        authors: [
-            authorsList[utilService.getRandomIntInclusive(0, authorsList.length - 1)]
-        ],
-        publishedDate: "",
-        description: "",
-        pageCount: utilService.getRandomIntInclusive(20, 600),
-        categories: [ctgs[utilService.getRandomIntInclusive(0, ctgs.length - 1)]],
-        thumbnail: `NotesImages/${1}.jpg`,
-        language: "en",
-        listPrice: {
-            amount: utilService.getRandomIntInclusive(80, 500),
-            currencyCode: "EUR",
-            isOnSale: Math.random() > 0.7
-        }
+        id: 'n101',
+        createdAt: 1112222, 
+        type: 'NoteTxt', 
+        isPinned: true, 
+        style: { backgroundColor: '#00d' }, 
+        info: { 
+            title:'important',
+            txt: 'Fullstack Me Baby!' } 
+    
     }
 }
 
@@ -200,42 +169,4 @@ function getEmptyReview() {
     }
 }
 
-function mapGoogleNoteToAppNote(googleNote) {
 
-
-    const info = googleNote.volumeInfo
-    return {
-        id: googleNote.id || utilService.makeId(),
-        title: info.title || 'Untitled',
-        subtitle: info.subtitle || utilService.makeLorem(4),
-        authors: info.authors,
-        publishedDate: info.publishedDate || '',
-        description: info.description || utilService.makeLorem(20),
-        pageCount: info.pageCount || utilService.getRandomIntInclusive(20, 600),
-        categories: info.categories,
-        thumbnail: (info.imageLinks && info.imageLinks.thumbnail) ? info.imageLinks.thumbnail : `NotesImages/${utilService.getRandomIntInclusive(1, 20)}.jpg`,
-        language: info.language || 'en',
-        listPrice: {
-            amount: utilService.getRandomIntInclusive(80, 500),
-            currencyCode: "EUR",
-            isOnSale: Math.random() > 0.7
-        }
-    }
-}
-
-
-function getNotesFromGoogle(searchTerm) {
-
-    return Promise.resolve(gNotes.items)
-
-    return fetch(`https://www.googleapis.com/notes/v1/volumes?printType=notes&q=${searchTerm}`)
-        .then(res => res.json()).then(res => res.items)
-
-}
-
-function getNotesFromGoogleMod() {
-
-    const notes = gNotes.items.map(mapGoogleNoteToAppNote)
-
-    return Promise.resolve(notes)
-}

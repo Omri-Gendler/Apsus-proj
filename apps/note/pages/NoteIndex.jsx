@@ -1,4 +1,9 @@
 
+import { NoteList } from "../cmps/NoteList.jsx"
+
 export function NoteIndex() {
-    return <section className="container">Notes app</section>
+    return <section className="container">
+        <NoteList/>
+        <h1>hi</h1>
+        </section>
 }
