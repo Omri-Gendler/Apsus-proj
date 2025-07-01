@@ -1,5 +1,5 @@
 
-import { NoteList } from "./cmps/NoteList.jsx"
+import { NoteList } from "../cmps/NoteList.jsx"
 
 export function NoteIndex() {
     return <section className="container">
