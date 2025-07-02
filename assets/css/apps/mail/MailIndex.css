@@ -4,7 +4,7 @@ h1 {
 
 .mail-inbox {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 7rem 95rem;
     height: calc(100vh - 80px);
     color: #3c4043;
     margin-top: 10px;
@@ -51,8 +51,9 @@ input {
     display: grid;
     align-items: baseline;
     justify-content: center;
+    text-align: center;
     background-color: #e9eef6;
-    width: 50%;
+    width: 5.5rem;
 }
 
 .side-bar span {
