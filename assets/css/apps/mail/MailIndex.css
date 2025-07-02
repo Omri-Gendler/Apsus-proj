@@ -11,23 +11,16 @@ h1 {
 
 }
 
-.mail-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-
-}
-
 .mail-preview {
     display: grid;
     grid-template-columns: 250px 250px;
     align-items: center;
     gap: 15px;
-    padding: 15px;
+    /* padding: 15px; */
     border-bottom: 1px solid #e0e0e0;
     cursor: pointer;
     font-weight: bold;
-    margin: 25px;
+    /* margin: 25px; */
 
 }
 
@@ -58,4 +51,8 @@ input {
 
 .side-bar span {
     padding-top: 2rem
+}
+
+.mail-filter-container {
+    margin-bottom: 2.5rem;
 }

@@ -1,17 +1,48 @@
-.unread {
-    font-weight: bold;
-}
-
 .mail {
-    border: solid 1px black;
-    margin: 1rem 0;
-    color: rgb(32, 33, 36);
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
 }
 
 .mail:hover {
     background-color: #f5f5f5;
-    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
-    z-index: 2;
-    position: relative;
-    cursor: pointer;
+}
+
+.unread-dot {
+    color: #0b57d0;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.mail-from {
+    font-weight: bold;
+    flex-shrink: 0;
+    width: 220px;
+    padding-right: 20px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mail-subject {
+    flex-grow: 1;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mail.read .mail-from,
+.mail.read .mail-subject {
+    font-weight: normal;
+}
+
+.mail-status {
+    width: 24px;
+    flex-shrink: 0;
+    text-align: center;
+
 }
