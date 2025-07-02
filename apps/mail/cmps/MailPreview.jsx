@@ -15,8 +15,9 @@ export function MailPreview({ mail }) {
             <span className="mail-from" onClick={onMailClicked}>
                 {mail.from}
             </span>
-
-            <span className="mail-subject">{mail.subject}</span>
+            <span className="mail-subject">
+                {mail.subject}
+            </span>
         </div>
     )
 } 
