@@ -5,6 +5,7 @@ body {
     font-style: normal;
     font-size: .875rem;
     letter-spacing: large;
+    background-color: #f8fafd;
 }
 
 h1,
@@ -47,6 +48,3 @@ input:focus {
     transition: background-color 1s;
 }
 
-.read {
-    font-weight: none;
-}

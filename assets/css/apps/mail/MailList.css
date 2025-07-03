@@ -1,0 +1,17 @@
+.read {
+    background-color: #f2f6fc;
+}
+ 
+.mail.unread {
+    font-weight: bold;
+}
+
+.mail-unread:hover {
+    background-color: rgba(0, 0, 0, 0.12); ;
+}
+
+.mail-status {
+    width: 24px;
+    flex-shrink: 0;
+    text-align: center;
+}

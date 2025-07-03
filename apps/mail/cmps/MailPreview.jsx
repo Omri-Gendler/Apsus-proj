@@ -1,3 +1,5 @@
+import { LongTxt } from "./LongTxt.jsx"
+
 export function MailPreview({ mail, onRemoveMail }) {
 
     const readClass = mail.isRead ? 'read' : 'unread'
@@ -9,19 +11,25 @@ export function MailPreview({ mail, onRemoveMail }) {
 
     return (
         <div className={`mail ${readClass}`}>
+            {/* <LongTxt txt={mail.subject} /> */}
             <div className="mail-status">
                 {!mail.isRead && <span className="unread-dot">●</span>}
             </div>
 
-            <span className="mail-from" onClick={onMailClicked}>
+            <p className="mail-from" onClick={onMailClicked}>
                 {mail.from}
-            </span>
+            </p>
 
-            <span className="mail-subject">
+            <p className="mail-subject">
                 {mail.subject}
-            </span>
+            </p>
 
-            <button onClick={() => onRemoveMail(mail.id)}>Delete</button>
+            <p className="mail-created">
+                {mail.createdAt}
+            </p>
+            <div>
+                <button className="delete-btn" onClick={() => onRemoveMail(mail.id)}>Delete</button>
+            </div>
         </div>
     )
 } 

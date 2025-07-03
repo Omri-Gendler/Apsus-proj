@@ -35,14 +35,6 @@
     text-overflow: ellipsis;
 }
 
-.mail.read .mail-from,
-.mail.read .mail-subject {
-    font-weight: normal;
-}
-
-.mail-status {
-    width: 24px;
-    flex-shrink: 0;
-    text-align: center;
-
+.delete-btn {
+    margin-right: 50rem;
 }
