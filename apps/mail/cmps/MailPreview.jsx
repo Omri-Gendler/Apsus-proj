@@ -1,4 +1,4 @@
-export function MailPreview({ mail }) {
+export function MailPreview({ mail, onRemoveMail }) {
 
     const readClass = mail.isRead ? 'read' : 'unread'
 
@@ -12,12 +12,16 @@ export function MailPreview({ mail }) {
             <div className="mail-status">
                 {!mail.isRead && <span className="unread-dot">●</span>}
             </div>
+
             <span className="mail-from" onClick={onMailClicked}>
                 {mail.from}
             </span>
+
             <span className="mail-subject">
                 {mail.subject}
             </span>
+
+            <button onClick={() => onRemoveMail(mail.id)}>Delete</button>
         </div>
     )
 } 

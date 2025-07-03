@@ -24,7 +24,7 @@ export function MailIndex({ logo }) {
             })
     }
 
-    function onRemoveMails(mailId) {
+    function onRemoveMail(mailId) {
         mailService.remove(mailId)
             .then(() => {
                 showSuccessMsg('Mail Removed Successfully!')
@@ -63,7 +63,7 @@ export function MailIndex({ logo }) {
             </aside>
             <main className="mail-main-content">
                 {<MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />}
-                {<MailList mails={mails} logo={logo} />}
+                {<MailList mails={mails} logo={logo} onRemoveMail={onRemoveMail} />}
             </main>
         </div>
     )

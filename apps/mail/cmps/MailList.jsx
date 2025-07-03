@@ -1,6 +1,6 @@
 import { MailPreview } from "./MailPreview.jsx"
 
-export function MailList({ mails }) {
+export function MailList({ mails, onRemoveMail }) {
 
     if (!mails || mails.length === 0) {
         return <div className="no-emails">No emails to show</div>
@@ -12,6 +12,7 @@ export function MailList({ mails }) {
                     < MailPreview
                         key={mail.id}
                         mail={mail}
+                        onRemoveMail={onRemoveMail}
                     />
                 ))}
                 {console.log(mails)}
