@@ -1,12 +1,13 @@
 
 
 export function NotePreview({note}){
+    console.log(note)
 
     return (
        
-        <div class="note">
-        <input type="text" name="title" placeholder="Title">{note.info.title}</input>
-        <input type="text" name="content" placeHolder="Write anything...">{note.info.txt}</input>
+        <div className="note">
+        <h1>{note.info.title}</h1>
+        <p>{note.info.txt}</p>
         </div>
        
     )

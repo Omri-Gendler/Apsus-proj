@@ -1,12 +1,14 @@
-import { MailList } from "../cmps/MailList.jsx"
-import { MailFilter } from "../cmps/MailFilter.jsx"
+import { NoteList } from "../cmps/NoteList.jsx"
+
 import { noteService } from "../services/note.service.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
+
 const { Link } = ReactRouterDOM
 const { useState, useEffect } = React
+
 export function NoteIndex({ logo }) {
     const [notes, setNotes] = useState(null)
-    const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter(''))
+   
     useEffect(() => {
         loadNotes()
     }, [])
@@ -17,22 +19,21 @@ export function NoteIndex({ logo }) {
                 console.log('err:', err)
             })
     }
-    function onRemoveMails(noteId) {
-        noteService.remove(noteId)
-            .then(() => {
-                showSuccessMsg('Mail Removed Successfully!')
-                setNotes((prevMails) =>
-                    prevMails.filter(mail => mail.id !== noteId)
-                )
-            })
-            .catch(err => {
-                console.log(err)
-                showErrorMsg('Problem removing Mail')
-            })
-    }
-    // function onSetFilterBy(filterByToEdit) {
-    //     setFilterBy(prevFilter => ({ ...prevFilter, ...filterByToEdit }))
+    // function onRemoveNote(noteId) {
+    //     noteService.remove(noteId)
+    //         .then(() => {
+    //             showSuccessMsg('Note Removed Successfully!')
+    //             setNotes((prevNotes) =>
+    //                 prevMails.filter(note => note.id !== noteId)
+    //             )
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //             showErrorMsg('Problem removing Note')
+    //         })
     // }
+
     if (!notes) return <div className="container">Loading...</div>
-    return console.log(notes)
+    return <NoteList notes = {notes}/>
+
 }
