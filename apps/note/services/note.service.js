@@ -4,6 +4,10 @@ import { storageService } from './async-storage.service.js'
 const NOTE_KEY = 'noteDB'
 _createNotes()
 
+const gNotes = [ { id: 'n101', createdAt: 1112222, type: 'NoteTxt', isPinned: true, style: { backgroundColor: '#00d' }, info: { title:'hellow',txt: 'hi kdfiknfeifnefn ejnfeinfienf ejknfebnfeinbf jenfiewfieqfipeq ejfneif njebnfie ienwflibnfeibf. ejkfbewjkbfjeb hkeb wfkjekwhbf kbnefiewbf ewfjnewfbn' } },
+     { id: 'n102', createdAt: 1112223, type: 'NoteImg', isPinned: false, info: { url: 'http://some-img/me', title: 'Bobi and Me' }, style: { backgroundColor: '#00d' } }, 
+     { id: 'n103', createdAt: 1112224, type: 'NoteTodos', isPinned: false, info: { title: 'Get my stuff together', todos: [ { txt: 'Driving license', doneAt: null }, { txt: 'Coding power', doneAt: 187111111 } ] } }]
+
 
 
 const loggedinUser = {
@@ -14,6 +18,7 @@ const loggedinUser = {
 export const noteService = {
     query,
     get,
+    add,
     remove,
     save,
     getEmptyNote,
@@ -59,14 +64,18 @@ function getDefaultFilter() {
 function _createNotes() {
    let notes = loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
-
-    const notes = [ { id: 'n101', createdAt: 1112222, type: 'NoteTxt', isPinned: true, style: { backgroundColor: '#00d' }, info: { title:'hellow',txt: 'hi kdfiknfeifnefn ejnfeinfienf ejknfebnfeinbf jenfiewfieqfipeq ejfneif njebnfie ienwflibnfeibf. ejkfbewjkbfjeb hkeb wfkjekwhbf kbnefiewbf ewfjnewfbn' } }, { id: 'n102', createdAt: 1112223, type: 'NoteImg', isPinned: false, info: { url: 'http://some-img/me', title: 'Bobi and Me' }, style: { backgroundColor: '#00d' } }, { id: 'n103', createdAt: 1112224, type: 'NoteTodos', isPinned: false, info: { title: 'Get my stuff together', todos: [ { txt: 'Driving license', doneAt: null }, { txt: 'Coding power', doneAt: 187111111 } ] } }]
-        saveToStorage(NOTE_KEY, notes)
+        const gNotes = [ { id: 'n101', createdAt: 1112222, type: 'NoteTxt', isPinned: true, style: { backgroundColor: '#00d' }, info: { title:'hellow',txt: 'hi kdfiknfeifnefn ejnfeinfienf ejknfebnfeinbf jenfiewfieqfipeq ejfneif njebnfie ienwflibnfeibf. ejkfbewjkbfjeb hkeb wfkjekwhbf kbnefiewbf ewfjnewfbn' } },
+     { id: 'n102', createdAt: 1112223, type: 'NoteImg', isPinned: false, info: { url: 'http://some-img/me', title: 'Bobi and Me' }, style: { backgroundColor: '#00d' } }, 
+     { id: 'n103', createdAt: 1112224, type: 'NoteTodos', isPinned: false, info: { title: 'Get my stuff together', todos: [ { txt: 'Driving license', doneAt: null }, { txt: 'Coding power', doneAt: 187111111 } ] } }]
+    saveToStorage(NOTE_KEY, gNotes)
     }
 }
 
-function _createNote(subject) {
-    const note = getEmptyNote(subject)
+
+
+function add(note) {
     note.id = makeId()
-    return note
+    gNotes.unshift(note)
+    saveToStorage('noteDB', gNotes)
+    return Promise.resolve(note)
 }

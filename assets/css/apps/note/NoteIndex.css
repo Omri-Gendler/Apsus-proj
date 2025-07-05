@@ -11,3 +11,55 @@
     --gray2: #888;
     --gray2: #333;
 }
+
+.keep-side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 4.5rem; /* collapsed width */
+    background-color: #f1f3f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    transition: width 0.2s ease;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.keep-side-bar:hover {
+    width: 15rem; /* expanded width */
+    align-items: flex-start;
+    padding-left: 1rem;
+}
+
+.keep-side-bar .sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.25rem;
+    border-radius: 0 25px 25px 0;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    width: 100%;
+}
+
+.keep-side-bar .sidebar-item:hover {
+    background-color: #e8eaed;
+}
+
+.keep-side-bar .sidebar-icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.keep-side-bar .sidebar-label {
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.keep-side-bar:hover .sidebar-label {
+    opacity: 1;
+}
