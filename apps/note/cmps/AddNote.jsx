@@ -3,7 +3,7 @@ const { useState, useRef } = React
 import { makeId } from "../services/util.service.js"
 
 
-export function AddNote({onAddNote}, notes){
+export function AddNote({onAddNote}){
     const [isExpanded, setIsExpanded] = useState(false)
     const [title, setNoteTitle] = useState('')
     const [txt, setNoteTxt] = useState('')

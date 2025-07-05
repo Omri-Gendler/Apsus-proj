@@ -71,11 +71,11 @@ export function NoteIndex({ logo }) {
                         <span><Link to='/trash'>Trash</Link></span>
                     </div>
                 </aside>
-                <main className="note-main-content">
-
+                <main className="notes-main-content">
+                    
                     <AddNote onAddNote={onAddNote} />
 
-                    {<NoteList notes={notes} logo={logo} onRemoveNote={onRemoveNote} />}
+                    <NoteList notes={notes} logo={logo} onRemoveNote={onRemoveNote} />
                 </main>
             </div>
 
