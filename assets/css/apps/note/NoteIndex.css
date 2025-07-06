@@ -12,78 +12,59 @@
     --gray2: #333;
 }
 
-.notes-side-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 4.5rem; /* collapsed width */
-    background-color: #f1f3f4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 1rem;
-    transition: width 0.2s ease;
-    overflow-y: auto;
-    z-index: 1000;
-}
-
-.notes-side-bar:hover {
-    width: 15rem; /* expanded width */
-    align-items: flex-start;
-    padding-left: 1rem;
-}
-
-.notes-side-bar .sidebar-item {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.25rem;
-    border-radius: 0 25px 25px 0;
-    transition: background-color 0.2s ease;
-    cursor: pointer;
-    width: 100%;
-}
-
-.notes-side-bar .sidebar-item:hover {
-    background-color: #e8eaed;
-}
-
-.notes-side-bar .sidebar-icon {
-    font-size: 1.5rem;
-    margin-right: 1rem;
-}
-
-.notes-side-bar .sidebar-label {
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-.notes-side-bar:hover .sidebar-label {
-    opacity: 1;
-}
-
-.notes-container{
-    display: grid;
-    grid-template-columns: 100px 1fr 100px;
-    grid-template-rows: 1fr 1fr;
-}
-
-.notes-main-content {
-  grid-column: 2;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem; /* adds space between notes */
-  padding: 1rem;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
 .add-note-container{
-    
-    display: sticky;
-    justify-content: center;
-   
+    position:relative;
+    width: 80%;
+    margin: 32px auto 50px auto;
+    background: #fff;
+    padding: 7px;
+    border-radius: 7px;
+    box-shadow: 0 1px 7px rgb(128, 128, 128);
+}
 
+.add-note-container input{
+    width: 80%;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+    position: relative;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    resize: none;
+}
+
+.add-note-container textarea{
+    width: 80%;
+    border: none;
+    padding: 4px 10px;
+    font-size: 1rem;
+    outline: none;
+    resize: none;
+}
+
+.add-note-container .submit-btn{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    left: 90%;
+    bottom: -30px;
+    background: rgb(248, 199, 2);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 1px 3px rgb(163, 163, 163);
+    cursor: pointer;
+    outline: none;
+}
+
+.delete-button{
+    position:relative;
+    float: right;
+    color: orange;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
 }

@@ -1,45 +1,44 @@
- /* note list */
 
- .note{
-    background-color: #fff;
-    width: 240px;
-    min-height: 60px;
-    border-radius: 7px;
+
+.notes-list{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    
-    border: 1px solid rgb(210, 208, 208);
-
-    padding: 15px;
-    margin: 16px;
-    float: left;
-    transition: box-shadow 0.2s ease;
-   
- }
-
-.note h1{
-    font-size: 1rem;
-    margin-bottom: 6px;
+    flex-flow: column-wrap;
 }
 
-.note p{
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 10px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    
+
+.note {
+  
+  background-color: #fff;
+  width: 240px;
+  
+  border-radius: 7px;
+  border: 1px solid rgb(210, 208, 208);
+  padding: 10px;
+  margin: 16px;
+  float: left;
+  transition: box-shadow 0.2s ease;
+  break-inside: avoid;
+  margin-right: 0;
 }
 
 .note:hover {
-  box-shadow: 0 2px 5px rgb(175,175,175);
+  box-shadow: 0 2px 5px rgb(175, 175, 175);
 }
 
-.note-main-content{
-    grid-column: 2;
+.note h1 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  word-wrap: break-word;
 }
 
-.note span{
-    font-weight: lighter;
+.note p {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.note span {
+  font-weight: lighter;
 }

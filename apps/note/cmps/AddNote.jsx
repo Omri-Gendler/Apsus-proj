@@ -7,6 +7,7 @@ export function AddNote({onAddNote}){
     const [isExpanded, setIsExpanded] = useState(false)
     const [title, setNoteTitle] = useState('')
     const [txt, setNoteTxt] = useState('')
+    const [isHover, setIsHover] = useState(false)
     const containerRef = useRef(null)
 
     function expandNote() {
@@ -41,7 +42,7 @@ export function AddNote({onAddNote}){
 
    return(
 
-         <div
+         <form
       ref={containerRef}
       className="add-note-container"
       onClick={expandNote}
@@ -54,7 +55,7 @@ export function AddNote({onAddNote}){
           readOnly
         />
       )}
-            {isExpanded && (<div className="note-expanded note">
+            {isExpanded && (<form className="note-expanded">
           <input
             type="text"
             placeholder="Title"
@@ -64,16 +65,16 @@ export function AddNote({onAddNote}){
           />
           <textarea
             placeholder="Take a note..."
-            className="note-body"
+            className="note-txt"
             value={txt}
             onChange={(ev) => setNoteTxt(ev.target.value)}
           />
           <div className="note-actions">
-            <button className="btn" onClick={onSubmit}>Close</button>
+            <button className="submit-btn" onClick={onSubmit}>+</button>
           </div>
-        </div>
+        </form>
             )}
-        </div>
+        </form>
    )
 
     
