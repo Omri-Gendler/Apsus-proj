@@ -14,7 +14,7 @@
 
 .add-note-container{
     position:relative;
-    width: 80%;
+    width: 60%;
     margin: 32px auto 50px auto;
     background: #fff;
     padding: 7px;
@@ -23,8 +23,8 @@
 }
 
 .add-note-container input{
-    width: 80%;
-    padding: 4px 10px;
+    width: 90%;
+    padding: 4px 8px;
     margin-bottom: 20px;
     position: relative;
     border: none;
@@ -34,9 +34,9 @@
 }
 
 .add-note-container textarea{
-    width: 80%;
+    width: 90%;
     border: none;
-    padding: 4px 10px;
+    padding: 4px 8px;
     font-size: 1rem;
     outline: none;
     resize: none;
@@ -68,3 +68,14 @@
     cursor: pointer;
     outline: none;
 }
+
+/* .backdrop{
+   position:sticky;
+   
+   display: block;
+    color: rgb(9, 54, 39);
+    z-index: 2;
+    margin: 0;
+    width: 1000px;
+    height: 1000px;
+} */

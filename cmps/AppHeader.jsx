@@ -1,13 +1,16 @@
 const { Link, NavLink, useLocation } = ReactRouterDOM
 
 const mailLogo = './img/logo.png'
+const notesLogo ='./img/keepLogo.png'
 const defaultLogo = './img/app-logo.webp'
 
 export function AppHeader() {
     const location = useLocation()
     const isMailSection = location.pathname.startsWith('/mail')
-    const currentLogo = isMailSection ? mailLogo : defaultLogo
+   
+    const currentLogo = isMailSection ? mailLogo : defaultLogo 
 
+    
     return (
         <header className="app-header">
             <Link to="/">

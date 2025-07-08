@@ -6,8 +6,8 @@ export function NoteList({ notes, onRemoveNote }) {
         return <div className="no-notes">No notes to show</div>
     }
     return (
-        <div>
-            <ul className="note-list ">
+        <div >
+            <ul className="note-list grid">
                 {notes.map(note => (
                     < NotePreview
                         key={note.id}

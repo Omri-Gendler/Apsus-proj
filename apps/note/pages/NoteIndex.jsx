@@ -1,6 +1,7 @@
 import { NoteList } from "../cmps/NoteList.jsx"
 import {AddNote } from "../cmps/AddNote.jsx"
 import { noteService } from "../services/note.service.js"
+import { Modal } from "../cmps/Modal.jsx"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 
 
@@ -10,6 +11,7 @@ const { useState, useEffect } = React
 export function NoteIndex({ logo }) {
     
     const [notes, setNotes] = useState(null)
+    const [showModal, setShowModal] = useState(false)
     
     useEffect(() => {
         noteService.query().then(setNotes)
@@ -36,7 +38,7 @@ function onAddNote(noteToSave) {
     noteService.add(noteToSave)
     .then(savedNote => {
         showSuccessMsg('Note Added Successfully!')
-        setNotes(prevNotes => [savedNote, ...prevNotes])
+        setNotes(prevNotes => [...prevNotes, savedNote])
     })
     .catch(err => {
         console.error('Error saving note:', err)
@@ -68,9 +70,8 @@ return  <div className="notes-container">
                     </div>
                 </aside> */}
                 <main className="notes-main-content">
-                    
                     <AddNote onAddNote={onAddNote} />
-
+                    
                     <NoteList notes={notes} logo={logo} onRemoveNote={onRemoveNote} />
                 </main>
             </div>
